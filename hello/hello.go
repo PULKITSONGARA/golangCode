@@ -16,16 +16,27 @@ type accountHolder struct {
 }
 
 func main() {
+	// var map_name string
+	// var key string
 	fmt.Printf("hello, world\n")
-	// fmt.Println(pow(2, 4, 10))
-	// reader := bufio.NewReader(os.Stdin)
+	fmt.Println(pow(2, 4, 10))
+
 	ah := accountHolder{}
-	// var x int
 	_, err := fmt.Scan(&ah.account_no, &ah.mobile_no, &ah.account_bal)
 	ah.name, _ = bufio.NewReader(os.Stdin).ReadString('\n')
 	ah.address, _ = bufio.NewReader(os.Stdin).ReadString('\n')
 	// _, err := fmt.Scan(&ah.mobile_no)
 	// _, err := fmt.Scan(&ah.account_bal)
+	state_population := map[string]int{
+		"Madhya Pradesh": 320982,
+		"Karnataka":      280298,
+		"Uttar Pradesh":  230982,
+		"Tamilnadu":      298024,
+		"Maharashtra":    328789,
+		"Chhattisgrah":   980982,
+	}
+	del_map_entry(state_population, "Karnataka")
+	fmt.Println(state_population, err)
 }
 
 func pow(x, n, lim float64) float64 {
@@ -45,26 +56,7 @@ func interest_cals(account_bal float64) (float64, string) {
 	return 0, "Your account balance is zero"
 }
 
-// package main
+func del_map_entry(map_name map[string]int, key string) {
+	delete(map_name, key)
 
-// import (
-// 	"bufio"
-// 	"fmt"
-// 	"os"
-// )
-
-// func main() {
-// 	//reading an integer
-// 	var age int
-// 	fmt.Println("What is your age?")
-// 	_, err := fmt.Scan(&age)
-
-// 	//reading a string
-// 	reader := bufio.NewReader(os.Stdin)
-// 	var name string
-// 	fmt.Println("What is your name?")
-// 	name, _ = reader.ReadString('\n')
-
-// 	fmt.Println("Your name is ", name, " and you are age ", age)
-// 	fmt.Println(err)
-// }
+}
